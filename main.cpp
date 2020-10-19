@@ -25,6 +25,7 @@ class CalculatorTest : public ::testing::Test
 
 TEST_F(CalculatorTest, plus_p)
 {
+    std::cout << "1 plus 1 equals 2" << std::endl;
     EXPECT_EQ(2, gCalculator.plus(1, 1));
 }
 
