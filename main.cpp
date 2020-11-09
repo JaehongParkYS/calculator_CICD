@@ -33,6 +33,7 @@ TEST_F(CalculatorTest, plus_p)
 
 int main(int argc, char **argv)
 {
+    std::cout << "Hello Jenkins" << std::endl;
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }
