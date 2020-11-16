@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh '''
-                echo("Start Build")
+                echo "Start Build"
                 g++ -o main main.cpp calculator.cpp -lgtest -lpthread
                 '''
             }
@@ -13,7 +13,7 @@ pipeline {
         stage('Test') {
             steps {
                 sh '''
-                echo("Start Test")
+                echo "Start Test"
                 ./main
                 '''
             }
@@ -21,7 +21,7 @@ pipeline {
         stage('Archive') {
             steps {
                 sh '''
-                echo("Start Archiving")
+                echo "Start Archiving"
                 mv ./main ./artifact/
                 '''
                 archiveArtifacts artifacts: './artifact/*', fingerprint: true 
