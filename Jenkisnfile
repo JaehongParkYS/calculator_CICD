@@ -1,0 +1,31 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                sh '''
+                echo("Start Build")
+                g++ -o main main.cpp calculator.cpp -lgtest -lpthread
+                '''
+            }
+        }
+        stage('Test') {
+            steps {
+                sh '''
+                echo("Start Test")
+                ./main
+                '''
+            }
+        }
+        stage('Archive') {
+            steps {
+                sh '''
+                echo("Start Archiving")
+                mv ./main ./artifact/
+                '''
+                archiveArtifacts artifacts: './artifact/*', fingerprint: true 
+            }
+        }
+    }
+}
