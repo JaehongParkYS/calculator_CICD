@@ -24,7 +24,7 @@ pipeline {
                 echo "Start Archiving"
                 mv ./main ./artifact/
                 '''
-                archiveArtifacts artifacts: './artifact/*', fingerprint: true 
+                archiveArtifacts artifacts: 'artifact/*', fingerprint: true 
             }
         }
     }
